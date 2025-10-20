@@ -1,0 +1,843 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <title>EXAMEN</title>
+
+</head>
+<body>
+    
+<canvas id="myCanvas">
+   
+</canvas>
+
+
+<script src="./font/White Square Red Yes Black Eight Zero Zero_Regular.js"></script>
+    <script src="./font/Catleya Signature_Regular.js"></script>
+    <script src="./font/Malow_Regular.js"></script>
+<script type="importmap"> 
+
+
+
+    {
+        "imports":{
+            "three": "./js/three.module.js",
+            "three/OrbitControls": "./js/OrbitControls.js" 
+        }
+}
+</script>
+<script type="module"> 
+//🗃️🗃️ Mandar llamar a la librería
+    import * as THREE from 'three'; 
+    import {OrbitControls} from 'three/OrbitControls';
+    //console.log(OrbitControls);
+    import {RoundedBoxGeometry} from "./js/RoundedBoxGEometry.js"
+    console.log(OrbitControls);
+    import {TextGeometry} from "./js/TextGeometry.js";
+    import {FontLoader} from "./js/FontLoader.js";
+
+
+
+//🕹️🕹️ Renderer - Realiza una conexión entre el código y el canvas
+    var renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('myCanvas'), antialias: true,
+    });
+    renderer.setPixelRatio(window.decivePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x5e2129);
+
+
+
+
+   //////////OBJETOS///////// 
+
+    
+    import BaseOfrenda1 from "./js/BaseOfrenda.js"
+    import MacetaFlor1 from "./js/Maceta.js"
+    import MARCOH1 from "./js/MARCOH.js"
+    import MARCOV1 from "./js/MARCOV.js"
+    import MARCOV2 from "./js/MARCOV2.js"
+    import PAN1 from "./js/PAN.js"
+    import papel1 from "./js/Papelpicado.js"
+    import papel2 from "./js/Papelpicado2.js"
+    import papel3 from "./js/Papelpicado3.js"
+    import papel4 from "./js/Papelpicado4.js"
+    import papel5 from "./js/Papelpicado5.js"
+    import cala1 from "./js/calavera.js"
+    import vela1 from "./js/velaofi.js"
+    import vela2 from "./js/velaofi2.js"
+    import vela3 from "./js/velaofi3.js"
+    import vela4 from "./js/velaofi4.js"
+    import limon1 from "./js/Limon.js"
+    import cruz1 from "./js/cruz.js"
+    import botella1 from "./js/botella.js"
+//🕹️🕹️ Renderer - Realiza una conexión entre el código y el canvas
+    var renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('myCanvas'), antialias: true,
+    });
+    renderer.setPixelRatio(window.decivePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0Xffffff);
+
+
+    
+
+// 🎬 Creando nueva escena - Es el espacio donde se colocan los objetos
+    var scene = new THREE.Scene();
+
+//🎥🎥 Agregar una cámara de perspectiva
+    var camera = new THREE.PerspectiveCamera(70,window.innerWidth / window.innerHeight,0.1,2000
+      );
+    scene.add(camera);
+
+
+    //Settings de la cámara
+    camera.position.set(0, 20, 90);
+
+    // Añadiendo los OrbitControls
+    var controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+
+
+var loader = new THREE.TextureLoader();
+var byTexture= loader.load ("assets/trajinera3.jpg");
+scene.background = byTexture;
+
+
+
+
+
+// Luz
+var light1 = new THREE.DirectionalLight(0xFFFFFF, 1);
+light1.position.set(50,50,50);       
+scene.add(light1);   
+
+const elem1 = vela1({x:5, y:5, z:0});
+scene.add(elem1);
+
+const elem2 = vela2({x:-5, y:5, z:2});
+scene.add(elem2);
+
+const elem3 = vela3({x:-9, y:11, z:-8});
+scene.add(elem3);
+
+const elem4 = vela4({x:9, y:11, z:-8});
+scene.add(elem4);
+
+const elem5 = MacetaFlor1 ({x:9, y:-7, z:8});
+scene.add(elem5);
+
+const elem6 = MacetaFlor1 ({x:-9, y:-7, z:8});
+scene.add(elem6);
+
+const elem7 = MacetaFlor1 ({x:0, y:-7, z:8});
+scene.add(elem7);
+
+const elem8 = MARCOH1 ({x:0, y:6, z:0});
+scene.add(elem8);
+
+const elem9 = MARCOV1 ({x:5, y:12.5, z:-15});
+scene.add(elem9);
+
+const elem10 = MARCOV2 ({x:-5, y:12.5, z:-13});
+scene.add(elem10);
+
+const elem11 = PAN1 ({x:10, y:6, z:2});
+scene.add(elem11);
+
+const elem12 = PAN1 ({x:-9, y:12, z:-15});
+scene.add(elem12);
+
+const elem13 = papel1 ({x:10, y:15, z:-27});
+scene.add(elem13);
+
+const elem14 = papel2 ({x:-10, y:15, z:-27});
+scene.add(elem14);
+
+const elem15 = papel3 ({x:0, y:15, z:-27});
+scene.add(elem15); 
+
+const elem16 = papel4 ({x:6, y:-0.5, z:-6});
+scene.add(elem16); 
+
+const elem17 = papel5 ({x:-6, y:-0.5, z:-6});
+scene.add(elem17); 
+
+const elem18 = cala1 ({x:-0, y:4, z:-18});
+scene.add(elem18);
+
+const elem19 = limon1 ({x:-8, y:-2.5, z:-1});
+scene.add(elem19);
+
+const elem20 = cruz1 ({x:0, y:-4, z:1});
+scene.add(elem20);
+
+const elem21 = botella1 ({x:6, y:12, z:-10});
+scene.add(elem21);
+
+// TEXTO 
+    var loader = new FontLoader();
+
+    var font = loader.parse(fontJSON2);
+    var geometry03 = new TextGeometry("Mictlán",{
+        font: font,
+        size:10,
+        height:2,
+
+    }); 
+    geometry03.center();
+    var material03 = new THREE.MeshLambertMaterial({
+        color:0x093587,
+        emissive:0x093587,
+        shading:THREE.FlatShading,
+    });
+
+    var geometry03 = new THREE.Mesh(geometry03,material03);
+    geometry03.position.set(0,35,28);
+    scene.add(geometry03);
+    geometry03.castShadow=true;
+// OBJETOS
+
+//MAR
+var geometry01 = new THREE.BoxGeometry(200,0.5,200);
+var textureLoader = new THREE.TextureLoader();
+var texture = textureLoader.load('./assets/mar.jpg');
+var material01 = new THREE.MeshLambertMaterial({
+    map: texture, side: THREE.DoubleSide
+});
+var mesh01 = new THREE.Mesh(geometry01,material01);
+    scene.add(mesh01);
+    
+//TRAGINERA
+
+//BASE
+var geometry02 = new THREE.BoxGeometry(29,1,52);
+var material02 = new THREE.MeshLambertMaterial({
+color:0xef0100, side:THREE.DoubleSide});
+var mesh02 = new THREE.Mesh(geometry02,material02);
+    scene.add(mesh02);
+mesh02.position.set(0,1,0);
+
+var geometry03 = new THREE.BoxGeometry(6,1.5,68);
+var material03 = new THREE.MeshLambertMaterial({
+color:0xfd9e09, side:THREE.DoubleSide});
+var mesh03 = new THREE.Mesh(geometry03,material03);
+    scene.add(mesh03);
+mesh03.position.set(-15.5,3.5,0);
+mesh03.rotation.z = Math.PI /1.5;
+
+var geometry03 = new THREE.BoxGeometry(6,1.5,68);
+var material03 = new THREE.MeshLambertMaterial({
+color:0xfd9e09, side:THREE.DoubleSide});
+var mesh03 = new THREE.Mesh(geometry03,material03);
+    scene.add(mesh03);
+mesh03.position.set(15.5,3.5,0);
+mesh03.rotation.z = Math.PI /-1.5; 
+
+var geometry04 = new THREE.BoxGeometry(1,10,32);
+var material04 = new THREE.MeshLambertMaterial({
+color:0xfd9e09, side:THREE.DoubleSide});
+var mesh04 = new THREE.Mesh(geometry04,material04);
+    scene.add(mesh04);
+mesh04.position.set(0,3.5,-30);
+mesh04.rotation.y = Math.PI /2; 
+mesh04.rotation.z = Math.PI /1.5; 
+
+var geometry04 = new THREE.BoxGeometry(1,10,32);
+var material04 = new THREE.MeshLambertMaterial({
+color:0xfd9e09, side:THREE.DoubleSide});
+var mesh04 = new THREE.Mesh(geometry04,material04);
+    scene.add(mesh04);
+mesh04.position.set(0,3.5,30);
+mesh04.rotation.y = Math.PI /2; 
+mesh04.rotation.z = Math.PI /-1.5; 
+
+var geoTriangulo = new THREE.RingGeometry(0, 8, 3);
+var matTriangulo = new THREE.MeshBasicMaterial({ 
+    color: 0x025099, side:THREE.DoubleSide });
+var mesh06 = new THREE.Mesh(geoTriangulo, matTriangulo);
+scene.add(mesh06);
+mesh06.position.set(0,4.5,30.2);
+mesh06.rotation.z = Math.PI /2; 
+mesh06.rotation.x = Math.PI /-1.5; 
+
+var geoTriangulo = new THREE.RingGeometry(0, 8, 3);
+var matTriangulo = new THREE.MeshBasicMaterial({ 
+    color: 0x025099, side:THREE.DoubleSide });
+var mesh06 = new THREE.Mesh(geoTriangulo, matTriangulo);
+scene.add(mesh06);
+mesh06.position.set(0,4.5,-30.2);
+mesh06.rotation.z = Math.PI /2; 
+mesh06.rotation.x = Math.PI /1.5; 
+
+//PALOS
+var geo05 = new THREE.CylinderGeometry (1.5,1.5,26,20,10,false,0,8);
+var mat05 = new THREE.MeshBasicMaterial({
+    color: 0x730201, side: THREE.DoubleSide});
+var mesh05= new THREE.Mesh(geo05,mat05);
+scene.add(mesh05);
+mesh05.position.set(-15,15,25);
+
+var geo05 = new THREE.CylinderGeometry (1.5,1.5,26,20,10,false,0,8);
+var mat05 = new THREE.MeshBasicMaterial({
+    color: 0x730201, side: THREE.DoubleSide});
+var mesh05= new THREE.Mesh(geo05,mat05);
+scene.add(mesh05);
+mesh05.position.set(15,15,25);
+
+
+var geo05 = new THREE.CylinderGeometry (1.5,1.5,26,20,10,false,0,8);
+var mat05 = new THREE.MeshBasicMaterial({
+    color: 0x730201, side: THREE.DoubleSide});
+var mesh05= new THREE.Mesh(geo05,mat05);
+scene.add(mesh05);
+mesh05.position.set(15,15,-25);
+
+var geo05 = new THREE.CylinderGeometry (1.5,1.5,26,20,10,false,0,8);
+var mat05 = new THREE.MeshBasicMaterial({
+    color: 0x730201, side: THREE.DoubleSide});
+var mesh05= new THREE.Mesh(geo05,mat05);
+scene.add(mesh05);
+mesh05.position.set(-15,15,-25);
+
+/////////////TECHO QUE SE DEBE TRANSFORMAR A OBJETO PLIS TONI O IAN//////////////
+
+var geo111 = new THREE.CylinderGeometry (18,18,52,20,10,false,0, Math.PI);
+var mat111 = new THREE.MeshBasicMaterial({
+    color: 0x72a75a, side: THREE.DoubleSide,});
+var mesh111 = new THREE.Mesh(geo111,mat111);
+scene.add(mesh111);
+mesh111.position.set(0,27,-1);
+mesh111.rotation.z = Math.PI /2;
+mesh111.rotation.y = Math.PI /2;
+
+var geo111 = new THREE.CylinderGeometry (20,20,2,20,10,false,0, Math.PI);
+var mat111 = new THREE.MeshBasicMaterial({
+    color: 0xcfdc03, side: THREE.DoubleSide,});
+var mesh111 = new THREE.Mesh(geo111,mat111);
+scene.add(mesh111);
+mesh111.position.set(0,27,26.1);
+mesh111.rotation.z = Math.PI /2;
+mesh111.rotation.y = Math.PI /2;
+
+
+var geo111 = new THREE.CylinderGeometry (18,18,52,20,10,false,0, Math.PI);
+var mat111 = new THREE.MeshBasicMaterial({
+    color: 0x37682b, side: THREE.DoubleSide, wireframe:true});
+var mesh111 = new THREE.Mesh(geo111,mat111);
+scene.add(mesh111);
+mesh111.position.set(0,27,-1);
+mesh111.rotation.z = Math.PI /2;
+mesh111.rotation.y = Math.PI /2;
+
+//Base ofrenda
+
+//Nilvel 1
+var geometryCaja = new THREE.BoxGeometry(25,6,34);
+var texturaCaja = new THREE.TextureLoader().load("./assets/mantel.jpg");
+var materialCaja = new THREE.MeshLambertMaterial({
+map: texturaCaja
+});
+var caja = new THREE.Mesh(geometryCaja, materialCaja);
+caja.position.set(0,3,-10);
+caja.receiveShadow = true;
+scene.add(caja);
+
+//Nilvel 2
+var geometryCaja = new THREE.BoxGeometry(22,6,19);
+var texturaSuperior = new THREE.TextureLoader().load("./assets/mantel.jpg");
+var materialSuperior = new THREE.MeshLambertMaterial({ map: texturaSuperior });
+// Material para las demás caras
+var materialLiso = new THREE.MeshLambertMaterial({ color: 0xef0100});
+var materiales = [
+  materialLiso,   
+  materialLiso,   
+  materialSuperior, 
+  materialLiso,   
+  materialLiso,   
+  materialLiso    ];
+var caja = new THREE.Mesh(geometryCaja, materiales);
+caja.position.set(0,9,-15);
+caja.castShadow = true;
+scene.add(caja);
+
+
+//CORTINITAS cempasúchil izquierda
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF77525, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(-18,8,-18);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(-18,13,-18);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(-18,18,-18);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(-18,23,-18);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF73B6D, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(-18,8,-13);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(-18,13,-13);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(-18,18,-13);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(-18,23,-13);
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x2FF7FA, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(-18,8,-8);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(-18,13,-8);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(-18,18,-8);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(-18,23,-8);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xCE2FFA, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(-18,8,-3);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(-18,13,-3);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(-18,18,-3);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(-18,23,-3);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xE84A2C, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(-18,8,2);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(-18,13,2);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(-18,18,2);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(-18,23,2);
+
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x25FA85, side: THREE.DoubleSide});
+
+
+var mesh5 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh5);
+mesh5.position.set(-18,8,7);
+
+var mesh6 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh6);
+mesh6.position.set(-18,13,7);
+
+var mesh7= new THREE.Mesh(geo1,mat1);
+scene.add(mesh7);
+mesh7.position.set(-18,18,7);
+
+var mesh8 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh8);
+mesh8.position.set(-18,23,7);
+
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xFA256F, side: THREE.DoubleSide});
+
+
+var mesh9 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh9);
+mesh9.position.set(-18,8,12);
+
+var mesh10 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh10);
+mesh10.position.set(-18,13,12);
+
+var mesh11= new THREE.Mesh(geo1,mat1);
+scene.add(mesh11);
+mesh11.position.set(-18,18,12);
+
+var mesh12 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh12);
+mesh12.position.set(-18,23,12);
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x2F69FA, side: THREE.DoubleSide});
+
+var mesh13 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh13);
+mesh13.position.set(-18,8,17);
+
+var mesh14 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh14);
+mesh14.position.set(-18,13,17);
+
+var mesh15= new THREE.Mesh(geo1,mat1);
+scene.add(mesh15);
+mesh15.position.set(-18,18,17);
+
+var mesh16 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh16);
+mesh16.position.set(-18,23,17);
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF7FA2F, side: THREE.DoubleSide});
+
+var mesh13 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh13);
+mesh13.position.set(-18,8,22);
+
+var mesh14 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh14);
+mesh14.position.set(-18,13,22);
+
+var mesh15= new THREE.Mesh(geo1,mat1);
+scene.add(mesh15);
+mesh15.position.set(-18,18,22);
+
+var mesh16 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh16);
+mesh16.position.set(-18,23,22);
+
+
+
+
+
+
+//CORTINITAS cempasúchil DERECHA
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF77525, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(18,8,-18);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(18,13,-18);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(18,18,-18);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(18,23,-18);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF73B6D, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(18,8,-13);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(18,13,-13);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(18,18,-13);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(18,23,-13);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x2FF7FA, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(18,8,-8);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(18,13,-8);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(18,18,-8);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(18,23,-8);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xCE2FFA, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(18,8,-3);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(18,13,-3);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(18,18,-3);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(18,23,-3);
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xE84A2C, side: THREE.DoubleSide});
+
+    
+//TORUS CORTINA
+var mesh1 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh1);
+mesh1.position.set(18,8,2);
+
+var mesh2 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh2);
+mesh2.position.set(18,13,2);
+
+var mesh3= new THREE.Mesh(geo1,mat1);
+scene.add(mesh3);
+mesh3.position.set(18,18,2);
+
+var mesh4 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh4);
+mesh4.position.set(18,23,2);
+
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x25FA85, side: THREE.DoubleSide});
+
+
+var mesh5 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh5);
+mesh5.position.set(18,8,7);
+
+var mesh6 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh6);
+mesh6.position.set(18,13,7);
+
+var mesh7= new THREE.Mesh(geo1,mat1);
+scene.add(mesh7);
+mesh7.position.set(18,18,7);
+
+var mesh8 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh8);
+mesh8.position.set(18,23,7);
+
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xFA256F, side: THREE.DoubleSide});
+
+
+var mesh9 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh9);
+mesh9.position.set(18,8,12);
+
+var mesh10 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh10);
+mesh10.position.set(18,13,12);
+
+var mesh11= new THREE.Mesh(geo1,mat1);
+scene.add(mesh11);
+mesh11.position.set(18,18,12);
+
+var mesh12 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh12);
+mesh12.position.set(18,23,12);
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0x2F69FA, side: THREE.DoubleSide});
+
+var mesh13 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh13);
+mesh13.position.set(18,8,17);
+
+var mesh14 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh14);
+mesh14.position.set(18,13,17);
+
+var mesh15= new THREE.Mesh(geo1,mat1);
+scene.add(mesh15);
+mesh15.position.set(18,18,17);
+
+var mesh16 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh16);
+mesh16.position.set(18,23,17);
+
+
+
+
+//TORUS DEFORME
+var geo1 = new THREE.TorusKnotGeometry (0.5,0.8,35,35,12,5);
+var mat1 = new THREE.MeshStandardMaterial({
+    color: 0xF7FA2F, side: THREE.DoubleSide});
+
+var mesh13 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh13);
+mesh13.position.set(18,8,22);
+
+var mesh14 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh14);
+mesh14.position.set(18,13,22);
+
+var mesh15= new THREE.Mesh(geo1,mat1);
+scene.add(mesh15);
+mesh15.position.set(18,18,22);
+
+var mesh16 = new THREE.Mesh(geo1,mat1);
+scene.add(mesh16);
+mesh16.position.set(18,23,22);
+
+
+
+
+
+//🎰🎰Rendering y animación
+    requestAnimationFrame(render);
+    function render() {
+
+    //🪄🪄 Animación - 
+        
+
+
+
+
+    //🎮🎮Actualización del OrbitControls para generar la suavidad de movimiento
+    controls.update();
+
+    //Llamado para renderizar y volver a llamar a la misma función (render)
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+    }
+</script>
+</body>
+</html>
